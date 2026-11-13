@@ -276,7 +276,7 @@ Tout le Figma est construit sur une unité de **14,4 px** (0,9 rem) : tailles et
 - Composants serveur par défaut ; `"use client"` seulement pour l'interactivité et les animations.
 - Commentaires de code en anglais, courts, et seulement pour le **pourquoi** (piège Next/Supabase, sécurité, choix non évident) : pas de commentaire qui répète le code. Les références Figma (nœuds, « Not in the Figma ») vont dans ce fichier, pas dans le code (nettoyage du 2026-11-13).
 - Fins de ligne **LF** partout (`.gitattributes`). `.gitignore` : `.env*` sauf `.env.example`, `.next`, `node_modules`, `.claude/`, fichiers système.
-- Dépôt git local depuis le 2026-11-13 (branche `main`, pas encore de dépôt distant) : committer régulièrement (une coupure de courant a déjà vidé ce fichier une fois).
+- Dépôt git depuis le 2026-11-13 : branche `main`, poussée sur GitHub `tefisoamihaja/red-tea-shop` (**public** : jamais de clé dans le code). Committer et pousser régulièrement (une coupure de courant a déjà vidé ce fichier une fois).
 
 ## Questions ouvertes
 
