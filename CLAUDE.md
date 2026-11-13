@@ -268,7 +268,7 @@ Tout le Figma est construit sur une unité de **14,4 px** (0,9 rem) : tailles et
 - `localStorage` (panier, wishlist) : écritures protégées par `try/catch` (navigation privée, quota plein).
 - `lang="en"` (les textes sont en anglais).
 - Checklist de mise en ligne : `README.md`.
-- **En ligne sur Vercel** depuis le 2026-11-13 : https://red-tea-shop.vercel.app (projet `red-tea-shop`, équipe « Tefy », offre Hobby), déployé automatiquement à chaque `git push` sur `main`. Variables : les 4 de `.env.local` + `NEXT_PUBLIC_SITE_URL=https://red-tea-shop.vercel.app` (Stripe en mode **test**). Pas d'intégrations Vercel Stripe/Supabase (elles écraseraient les clés). Reste : Redirect URL Supabase, webhook Stripe + `STRIPE_WEBHOOK_SECRET`, test d'achat en ligne.
+- **En ligne sur Vercel** depuis le 2026-11-13 : https://red-tea-shop.vercel.app (projet `red-tea-shop`, équipe « Tefy », offre Hobby), déployé automatiquement à chaque `git push` sur `main`. Variables : les 4 de `.env.local` + `NEXT_PUBLIC_SITE_URL=https://red-tea-shop.vercel.app` (Stripe en mode **test**). Pas d'intégrations Vercel Stripe/Supabase (elles écraseraient les clés). Supabase (Site URL + Redirect URL `/auth/confirm`) et webhook Stripe (`/api/stripe/webhook`, `STRIPE_WEBHOOK_SECRET` en Production) configurés. **Achat test en ligne réussi** le 2026-11-13 (compte connecté) : XAY-10008, €62, prix du catalogue, adresse enregistrée, une seule commande pour la session Stripe.
 
 ## Conventions
 
