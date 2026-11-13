@@ -14,6 +14,8 @@ export type AuthFormState = {
   message?: string;
   /** Refilled after an error (never the password) */
   values?: { name?: string; email?: string };
+  /** Signed in: the form loads this page (see useAuthRedirect) */
+  redirectTo?: string;
 };
 
 const NOT_CONFIGURED = "Sign-in is not available yet. Please try again later.";
@@ -57,7 +59,7 @@ export async function signIn(_prev: AuthFormState, formData: FormData): Promise<
     return { error: "Incorrect email or password.", values };
   }
 
-  redirect(safePath(formData.get("next")));
+  return { redirectTo: safePath(formData.get("next")) };
 }
 
 export async function signUp(_prev: AuthFormState, formData: FormData): Promise<AuthFormState> {
@@ -102,7 +104,7 @@ export async function signUp(_prev: AuthFormState, formData: FormData): Promise<
   }
 
   // Email confirmation is off: the user is already signed in
-  if (data.session) redirect("/account");
+  if (data.session) return { redirectTo: "/account" };
 
   return { message: "Welcome to the inner circle. Check your inbox to confirm your email." };
 }
@@ -154,7 +156,7 @@ export async function updatePassword(_prev: AuthFormState, formData: FormData): 
     return { error: "We could not update your password. Please try again." };
   }
 
-  redirect("/account");
+  return { redirectTo: "/account" };
 }
 
 export async function signOut() {

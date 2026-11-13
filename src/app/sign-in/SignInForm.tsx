@@ -5,12 +5,14 @@ import { useActionState } from "react";
 import { signIn, type AuthFormState } from "@/app/actions/auth";
 import { Button } from "@/components/ui/Button";
 import { FormAlert } from "@/components/ui/FormAlert";
+import { useAuthRedirect } from "@/hooks/useAuthRedirect";
 import { TextField } from "@/components/ui/TextField";
 
 const textLink = "label font-bold transition-opacity duration-250 ease-out hover:opacity-60";
 
 export function SignInForm() {
   const [state, formAction, pending] = useActionState<AuthFormState, FormData>(signIn, {});
+  const busy = useAuthRedirect(state.redirectTo) || pending;
   return (
     <form
       // Read ?next= on submit so the page can stay static
@@ -49,8 +51,8 @@ export function SignInForm() {
       <FormAlert>{state.error}</FormAlert>
 
       <div className="flex flex-col gap-8 pt-8">
-        <Button type="submit" variant="solid" className="w-full" disabled={pending}>
-          {pending ? "Signing In…" : "Sign In"}
+        <Button type="submit" variant="solid" className="w-full" disabled={busy}>
+          {busy ? "Signing In…" : "Sign In"}
         </Button>
         <p className="flex items-center justify-between">
           <span className="label opacity-60">New to XAY?</span>

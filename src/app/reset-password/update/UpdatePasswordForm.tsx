@@ -4,10 +4,12 @@ import { useActionState } from "react";
 import { updatePassword, type AuthFormState } from "@/app/actions/auth";
 import { Button } from "@/components/ui/Button";
 import { FormAlert } from "@/components/ui/FormAlert";
+import { useAuthRedirect } from "@/hooks/useAuthRedirect";
 import { TextField } from "@/components/ui/TextField";
 
 export function UpdatePasswordForm() {
   const [state, formAction, pending] = useActionState<AuthFormState, FormData>(updatePassword, {});
+  const busy = useAuthRedirect(state.redirectTo) || pending;
 
   return (
     <form action={formAction} className="flex w-full flex-col items-center gap-12 pt-4">
@@ -36,8 +38,8 @@ export function UpdatePasswordForm() {
 
       <FormAlert>{state.error}</FormAlert>
 
-      <Button type="submit" size="wide" disabled={pending}>
-        {pending ? "Saving…" : "Save Password"}
+      <Button type="submit" size="wide" disabled={busy}>
+        {busy ? "Saving…" : "Save Password"}
       </Button>
     </form>
   );

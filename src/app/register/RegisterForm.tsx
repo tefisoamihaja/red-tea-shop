@@ -5,10 +5,12 @@ import { useActionState } from "react";
 import { signUp, type AuthFormState } from "@/app/actions/auth";
 import { Button } from "@/components/ui/Button";
 import { FormAlert } from "@/components/ui/FormAlert";
+import { useAuthRedirect } from "@/hooks/useAuthRedirect";
 import { TextField } from "@/components/ui/TextField";
 
 export function RegisterForm() {
   const [state, formAction, pending] = useActionState<AuthFormState, FormData>(signUp, {});
+  const busy = useAuthRedirect(state.redirectTo) || pending;
 
   if (state.message) {
     return (
@@ -51,8 +53,8 @@ export function RegisterForm() {
       <FormAlert>{state.error}</FormAlert>
 
       <div className="flex flex-col gap-8 pt-8">
-        <Button type="submit" variant="solid" className="w-full" disabled={pending}>
-          {pending ? "Joining…" : "Join XAY"}
+        <Button type="submit" variant="solid" className="w-full" disabled={busy}>
+          {busy ? "Joining…" : "Join XAY"}
         </Button>
         <p className="flex items-center justify-between">
           <span className="label opacity-60">Already a member?</span>
