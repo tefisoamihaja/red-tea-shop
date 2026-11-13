@@ -1,0 +1,96 @@
+{
+  "categories": ["Red Tea", "Green Tea", "Oolong"],
+  "products": [
+    {
+      "slug": "green-tea-2",
+      "name": "Green Tea #2",
+      "origin": "Zhejiang",
+      "category": "Green Tea",
+      "price": 12,
+      "weight": "50 g",
+      "image": "/images/top-sales.jpg",
+      "description": "Longjing is one of the ten \"Famous Teas of China\". It is made of small tea leaves and buds, thanks to which it is drunk for a long time, and has a bright aroma and rich taste. In the manufacture of thin and flat leaves are obtained.",
+      "notes": ["Toasted chestnut", "Fresh grass", "Sweet finish"],
+      "brewing": { "amount": "3 g / 200 ml", "temperature": "80 °C", "time": "2 min" },
+      "topSale": true
+    },
+    {
+      "slug": "imperial-crimson",
+      "name": "Imperial Crimson",
+      "origin": "Sichuan Highlands",
+      "category": "Red Tea",
+      "price": 48,
+      "weight": "100 g",
+      "image": "/images/tea-1.jpg",
+      "description": "Hand-rolled red tea from the misty Sichuan highlands. Slowly oxidised, it brews a deep crimson cup with a round, honeyed body and no bitterness, even on a long steep.",
+      "notes": ["Wild honey", "Dried cherry", "Cocoa"],
+      "brewing": { "amount": "4 g / 250 ml", "temperature": "95 °C", "time": "3 min" },
+      "featured": true
+    },
+    {
+      "slug": "midnight-oolong",
+      "name": "Midnight Oolong",
+      "origin": "Wuyi Mountains",
+      "category": "Oolong",
+      "price": 62,
+      "weight": "100 g",
+      "image": "/images/tea-2.jpg",
+      "description": "A rock oolong grown between the cliffs of the Wuyi Mountains and charcoal-roasted over several nights. Mineral and smoky, it opens up over many short infusions.",
+      "notes": ["Roasted stone fruit", "Charcoal", "Orchid"],
+      "brewing": { "amount": "5 g / 150 ml", "temperature": "95 °C", "time": "30 s" },
+      "featured": true
+    },
+    {
+      "slug": "velvet-jasmine",
+      "name": "Velvet Jasmine",
+      "origin": "Fujian Coast",
+      "category": "Green Tea",
+      "price": 35,
+      "weight": "100 g",
+      "image": "/images/tea-3.jpg",
+      "description": "Spring green tea layered with fresh jasmine blossoms over seven nights, until the leaves carry the flower's perfume. Silky, floral and calming.",
+      "notes": ["Jasmine", "White peach", "Silky"],
+      "brewing": { "amount": "3 g / 200 ml", "temperature": "80 °C", "time": "2 min" },
+      "featured": true
+    },
+    {
+      "slug": "golden-peak",
+      "name": "Golden Peak",
+      "origin": "Yunnan Province",
+      "category": "Red Tea",
+      "price": 75,
+      "weight": "100 g",
+      "image": "/images/tea-4.jpg",
+      "description": "Golden buds picked by hand in Yunnan's ancient tea gardens. A rare red tea with a malty depth, a velvet texture and a long, sweet finish.",
+      "notes": ["Malt", "Sweet potato", "Caramel"],
+      "brewing": { "amount": "4 g / 250 ml", "temperature": "90 °C", "time": "3 min" },
+      "featured": true
+    },
+    {
+      "slug": "lunar-silver",
+      "name": "Lunar Silver",
+      "origin": "Dimbula Valley",
+      "category": "Red Tea",
+      "price": 54,
+      "weight": "100 g",
+      "image": "/images/tea-5.jpg",
+      "description": "A bright high-grown red tea from Ceylon's Dimbula Valley, picked in the cool season. Crisp and lively, it takes a drop of milk beautifully.",
+      "notes": ["Citrus peel", "Eucalyptus", "Brisk"],
+      "brewing": { "amount": "3 g / 250 ml", "temperature": "95 °C", "time": "4 min" },
+      "featured": true
+    },
+    {
+      "slug": "alpine-mist",
+      "name": "Alpine Mist",
+      "origin": "Darjeeling First Flush",
+      "category": "Red Tea",
+      "price": 68,
+      "weight": "100 g",
+      "image": "/images/tea-6.jpg",
+      "description": "The first spring picking of a Darjeeling estate, lightly oxidised. Delicate and floral, with the famous muscatel note of the Himalayan foothills.",
+      "notes": ["Muscatel grape", "Spring flowers", "Almond"],
+      "brewing": { "amount": "3 g / 250 ml", "temperature": "85 °C", "time": "3 min" },
+      "featured": true
+    }
+  ]
+}

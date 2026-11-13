@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens from the Figma file "RED TEA SHOP".
+ *
+ * The whole design is built on a 14.4px unit (0.9rem): sizes and spacings
+ * are multiples of it. Tailwind is configured so that classes map 1:1 to
+ * the Figma values — e.g. p-4 = 14.4px, px-16 = 57.6px, text-8xl = 144px.
+ */
+@theme {
+  /* ---------- Colors (Figma palette "Coloor") ---------- */
+
+  /* Red tea: main brand color (Coloor/Red-tea) */
+  --color-tea-50: #e5b9b9;
+  --color-tea-100: #dea5a5;
+  --color-tea-200: #cf7e7e;
+  --color-tea-300: #c05656;
+  --color-tea-400: #b12e2e;
+  --color-tea-500: #a20606;
+  --color-tea-600: #880505;
+  --color-tea-700: #6e0404;
+  --color-tea-800: #540303;
+  --color-tea-900: #3a0202;
+
+  /* Light backgrounds and greys (Coloor/white) */
+  --color-paper-50: #fdfdfd;
+  --color-paper-100: #fdfdfd;
+  --color-paper-200: #fcfcfc;
+  --color-paper-300: #fbfbfb;
+  --color-paper-400: #fafafa;
+  --color-paper-500: #f9f9f9;
+  --color-paper-600: #d1d1d1;
+  --color-paper-700: #a9a9a9;
+  --color-paper-800: #818181;
+  --color-paper-900: #5a5a5a;
+
+  /* Dark text and greys (Coloor/black) */
+  --color-ink-50: #c2c2c2;
+  --color-ink-100: #b1b1b1;
+  --color-ink-200: #8e8e8e;
+  --color-ink-300: #6b6b6b;
+  --color-ink-400: #484848;
+  --color-ink-500: #252525;
+  --color-ink-600: #1f1f1f;
+  --color-ink-700: #191919;
+  --color-ink-800: #131313;
+  --color-ink-900: #0d0d0d;
+
+  /* Pink tints used as section backgrounds */
+  --color-blush-50: #fff0f0;
+  --color-blush-100: #fadede;
+
+  /* Neutral avatar background */
+  --color-mist: #e5e5e5;
+
+  /* ---------- Shadows (red-tinted, used on hover) ---------- */
+
+  --shadow-card: 0 16px 36px rgb(163 5 5 / 0.22); /* product cards */
+  --shadow-soft: 0 10px 24px rgb(163 5 5 / 0.18); /* testimonial cards */
+
+  /* ---------- Fonts (set by next/font in layout.tsx) ---------- */
+
+  --font-display: var(--font-big-shoulders), "Impact", sans-serif;
+  /* Always use the narrow "Display" cut (opsz 72), like "Big Shoulders Display" in the Figma.
+     Without it, browsers pick a wider cut for small titles (36px and below). */
+  --font-display--font-variation-settings: "opsz" 72;  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  /* ---------- Spacing ---------- */
+
+  /* 1 step = 3.6px, so 4 steps = 14.4px (the Figma unit).
+     Common Figma values: 4 → 14.4 · 6 → 21.6 · 8 → 28.8 · 10 → 36
+     12 → 43.2 · 16 → 57.6 · 24 → 86.4 · 32 → 115.2 · 40 → 144 · 58 → 208.8 */
+  --spacing: 0.225rem;
+
+  /* Max content width (Figma frames are 1440px wide) */
+  --container-page: 90rem;
+
+  /* ---------- Font sizes (each with its default line height) ---------- */
+
+  --text-2xs: 0.6rem; /* 9.6px — tags, small labels */
+  --text-2xs--line-height: 1.5;
+  --text-xs: 0.7rem; /* 11.2px — uppercase labels (most used) */
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.8rem; /* 12.8px — buttons, small text */
+  --text-sm--line-height: 1.5;
+  --text-base: 0.9rem; /* 14.4px — body text */
+  --text-base--line-height: 1.625;
+  --text-md: 1rem; /* 16px — testimonials, "Checkout Now", newsletter subtitle */
+  --text-md--line-height: 1.5;
+  --text-lg: 1.08rem; /* 17.28px — product names, emphasis */
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.35rem; /* 21.6px — small titles */
+  --text-xl--line-height: 1.5;
+  --text-2xl: 1.62rem; /* 25.92px — prices, card titles */
+  --text-2xl--line-height: 1.5;
+  --text-3xl: 1.8rem; /* 28.8px — quotes, names */
+  --text-3xl--line-height: 1.5;
+  --text-4xl: 2.25rem; /* 36px — journal titles */
+  --text-4xl--line-height: 1.5;
+  --text-input: 2.7rem; /* 43.2px — big email fields (newsletter, reset password) */
+  --text-input--line-height: 1.2;
+  --text-5xl: 3.6rem; /* 57.6px — sub-section titles, logo */
+  --text-5xl--line-height: 1;
+  --text-6xl: 5.4rem; /* 86.4px — "Featured Selection" */
+  --text-6xl--line-height: 1;
+  --text-7xl: 7.2rem; /* 115.2px — section titles */
+  --text-7xl--line-height: 1;
+  --text-8xl: 9rem; /* 144px — big section titles */
+  --text-8xl--line-height: 1;
+  --text-9xl: 10.8rem; /* 172.8px — "Top Sales" */
+  --text-9xl--line-height: 1;
+  --text-10xl: 13.5rem; /* 216px — hero "PURE RED TEA" */
+  --text-10xl--line-height: 0.85;
+  --text-11xl: 16.2rem; /* 259.2px — "RESET" */
+  --text-11xl--line-height: 0.8;
+
+  /* ---------- Letter spacing ---------- */
+
+  /* Tailwind defaults already match the Figma for:
+     tighter -0.05em (logo) · wide 0.025em · wider 0.05em (all display titles)
+     widest 0.1em. Added for the uppercase Inter labels: */
+  --tracking-label: 0.2em;
+  --tracking-ultra: 0.25em;
+
+  /* ---------- Line height ---------- */
+
+  /* Tight leading for very large display titles */
+  --leading-display: 0.85;
+
+  /* ---------- Radius ---------- */
+
+  --radius-sm: 0.3125rem; /* 5px — inputs, small boxes */
+  --radius-panel: 1.8rem; /* 28.8px — panels */
+  --radius-card: 3.6rem; /* 57.6px — product cards */
+  /* Buttons and testimonial cards use rounded-full (pill). */
+}
+
+/* ---------- Text styles that repeat across the Figma ---------- */
+
+/* Big Shoulders titles: black weight, uppercase, 0.05em tracking */
+@utility heading {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72; /* same as --font-display--font-variation-settings */
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+/* Small uppercase Inter labels (130 occurrences in the Figma) */
+@utility label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-ultra);
+}
+
+/* Small text links that fade on hover (Figma "Hover/Logout", "Edit", "Remove": 55%) */
+@utility link-fade {
+  transition: opacity 250ms ease-out;
+  &:hover {
+    opacity: 0.55;
+  }
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-tea-500);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+}
